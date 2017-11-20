@@ -1,15 +1,12 @@
 <div align=center>
 
-# GitHub Banner Generator
+# [GitHub Banner Generator](https://rmariuzzo.github.io/github-banner/)
 
 ⚡️ Generate a GitHub banner for your repo!
 
+:point_right: **https://rmariuzzo.github.io/github-banner/** :point_left:
+
 </div>
-
-<table><tr><th>
-
-[Go to GitHub Banner Generator](https://rmariuzzo.github.io/github-banner/)
-</hr></tr></table>
 
 <div align=center>
 
