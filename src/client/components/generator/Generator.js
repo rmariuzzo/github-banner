@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactInputHandler from 'react-input-handler'
+import SvgSaver from 'svgsaver'
 import { map, reduce } from 'lodash'
 
 import templates from './templates/templates'
@@ -50,18 +51,26 @@ class Generator extends React.Component {
       <div>
         <div className={style.sidebar}>
           <h2>GitHub Banner Generator</h2>
-          <label>
+          <label className={style.field}>
             <div>Select a template:</div>
-            <select name="template" onChange={this.inputHandler}>
+            <select
+              className={style.input}
+              name="template"
+              onChange={this.inputHandler}
+            >
               {templates.map((template, index) => (
                 <option key={index}>{template.name}</option>
               ))}
             </select>
+            <div className={style.author}>
+              Author: {selectedTemplate.author}
+            </div>
           </label>
           {map(selectedTemplate.fields, (field, key) => (
-            <label key={key}>
+            <label key={key} className={style.field}>
               <div>{field.label}:</div>
               <input
+                className={style.input}
                 type={field.type}
                 name={`field-${key}`}
                 value={this.state[`field-${key}`]}
@@ -69,12 +78,34 @@ class Generator extends React.Component {
               />
             </label>
           ))}
+          <button className={style.button} onClick={() => this.onDownloadSvg()}>
+            Download SVG
+          </button>
+          <button className={style.button} onClick={() => this.onDownloadPng()}>
+            Download PNG
+          </button>
+          <a
+            className={style.source}
+            href="https://github.com/rmariuzzo/github-banner"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Check <em>the source</em> on GitHub!
+          </a>
         </div>
         <div className={style.banner}>
           {selectedTemplate.render(templateData)}
         </div>
       </div>
     )
+  }
+
+  onDownloadSvg() {
+    new SvgSaver().asSvg(document.querySelector('svg'))
+  }
+
+  onDownloadPng() {
+    new SvgSaver().asPng(document.querySelector('svg'))
   }
 }
 

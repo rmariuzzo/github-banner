@@ -19,3 +19,39 @@ $sidebar-width: 200px;
   border-radius: 10px;
   box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
 }
+
+.field {
+  margin-bottom: 20px;
+  display: block;
+}
+
+.input {
+  width: 100%;
+  padding: 5px;
+}
+
+.author {
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
+
+.button {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  transition: all 0.3s;
+  border-radius: 10px;
+  border: #888 solid 2px;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #444;
+  }
+}
+
+.source {
+  color: #4b32c3;
+  text-decoration: none;
+  border-bottom: #888 solid 1px;
+  line-height: 1.5em;
+}

@@ -2,7 +2,8 @@ import React from 'react'
 
 export default {
   name: 'Kira',
-  author: 'https://dribbble.com/shots/2832706-Optimizing-Content',
+  author: 'rmariuzzo',
+  inspiration: 'https://dribbble.com/shots/2832706-Optimizing-Content',
   fields: {
     name: { label: 'Name', type: 'text' },
     description: { label: 'Description', type: 'text' }
