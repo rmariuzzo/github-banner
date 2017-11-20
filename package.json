@@ -26,6 +26,7 @@
     "eslint-config-prettier": "^2.8.0",
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.5.1",
+    "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.5.3",
     "prettier": "^1.8.2",
@@ -37,7 +38,7 @@
     "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
-    "start": "npm run serve",
-    "serve": "cross-env NODE_ENV=development webpack-dev-server"
+    "serve": "cross-env NODE_ENV=development webpack-dev-server",
+    "build": "cross-env NODE_ENV=production webpack -p"
   }
 }

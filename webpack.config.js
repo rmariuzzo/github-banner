@@ -1,6 +1,8 @@
 const Html = require('html-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
+const ExtractText = require('extract-text-webpack-plugin')
+
 const Define = webpack.DefinePlugin
 const CommonsChunk = webpack.optimize.CommonsChunkPlugin
 const NamedModules = webpack.NamedModulesPlugin
@@ -36,14 +38,16 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          { loader: 'style-loader' },
-          {
-            loader: 'css-loader',
-            options: { importLoaders: true, modules: true }
-          },
-          { loader: 'sass-loader' }
-        ]
+        use: ExtractText.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: { importLoaders: true, modules: true }
+            },
+            { loader: 'sass-loader' }
+          ]
+        })
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -75,7 +79,8 @@ module.exports = {
       minChunks: module => /node_modules/.test(module.context)
     }),
     new HotModuleReplacement(),
-    new NamedModules()
+    new NamedModules(),
+    new ExtractText('styles.css')
   ],
   devServer: {
     historyApiFallback: true
