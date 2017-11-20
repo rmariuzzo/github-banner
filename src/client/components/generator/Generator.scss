@@ -1,0 +1,15 @@
+$sidebar-width: 200px;
+
+.sidebar {
+  background-color: #fafafa;
+  border-right: #eee solid 2px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 10px;
+  width: $sidebar-width;
+}
+
+.banner {
+  margin-left: $sidebar-width;
+}

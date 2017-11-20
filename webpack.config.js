@@ -7,7 +7,7 @@ const NamedModules = webpack.NamedModulesPlugin
 const HotModuleReplacement = webpack.HotModuleReplacementPlugin
 
 const paths = {
-  app: path.join(__dirname, './src/client/app/App.js'),
+  app: path.join(__dirname, './src/client/App.js'),
   index: path.join(__dirname, './src/client/index.html'),
   public: path.join(__dirname, './public'),
   client: path.join(__dirname, './src/client')
@@ -38,8 +38,22 @@ module.exports = {
         test: /\.scss$/,
         use: [
           { loader: 'style-loader' },
-          { loader: 'css-loader', options: { importLoaders: true, modules: true } },
+          {
+            loader: 'css-loader',
+            options: { importLoaders: true, modules: true }
+          },
           { loader: 'sass-loader' }
+        ]
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
         ]
       }
     ]
@@ -58,10 +72,10 @@ module.exports = {
     }),
     new CommonsChunk({
       name: 'vendor',
-      minChunks: (module) => /node_modules/.test(module.context)
+      minChunks: module => /node_modules/.test(module.context)
     }),
     new HotModuleReplacement(),
-    new NamedModules(),
+    new NamedModules()
   ],
   devServer: {
     historyApiFallback: true
