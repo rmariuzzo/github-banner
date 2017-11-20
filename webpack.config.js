@@ -22,7 +22,7 @@ module.exports = {
   output: {
     path: paths.public,
     filename: '[name].js',
-    publicPath: '/'
+    publicPath: '/github-banner'
   },
   resolve: {
     alias: {
