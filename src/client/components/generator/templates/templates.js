@@ -1,1 +1,5 @@
-export default [require('./apex/Apex').default, require('./kira/Kira').default]
+export default [
+  require('./apex/Apex').default,
+  require('./kira/Kira').default,
+  require('./reflection/Reflection').default
+]
